@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 	<head>
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
@@ -13,12 +13,26 @@
 			crossorigin="anonymous"
 		/>
 
+		<!-- FA icons -->
+		<script src="https://kit.fontawesome.com/3491156318.js" crossorigin="anonymous"></script>
+
 		<title>Hackernews</title>
 	</head>
-	<body>
+	<body class="d-flex flex-column h-100">
 		<noscript>You need to enable JavaScript to run this website.</noscript>
 
 		<div id="root"></div>
+
+		<footer class="footer mt-auto py-3 bg-light">
+			<div class="container">
+				<span class="text-muted"> Developed with <i class="fas fa-heart text-danger"></i> by Vishwa SSKM.</span>
+				<span class="float-end">
+					<a href="https://github.com/vishwasskm/hackernews-react-client" target="_blank" class="text-dark">
+						<i class="fab fa-github"></i>
+					</a>
+				</span>
+			</div>
+		</footer>
 
 		<!-- React Bundle -->
 		<script src="/dist/js/bundle.js"></script>
