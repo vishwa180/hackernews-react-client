@@ -1,0 +1,19 @@
+{
+  "name": "hackernews-react-client",
+  "version": "1.0.0",
+  "description": "A React implementation of Hacker News client.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishwasskm/hackernews-react-client.git"
+  },
+  "author": "Vishwa SSKM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishwasskm/hackernews-react-client/issues"
+  },
+  "homepage": "https://github.com/vishwasskm/hackernews-react-client#readme"
+}
