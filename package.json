@@ -1,19 +1,47 @@
 {
-  "name": "hackernews-react-client",
-  "version": "1.0.0",
-  "description": "A React implementation of Hacker News client.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vishwasskm/hackernews-react-client.git"
-  },
-  "author": "Vishwa SSKM",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vishwasskm/hackernews-react-client/issues"
-  },
-  "homepage": "https://github.com/vishwasskm/hackernews-react-client#readme"
+	"name": "hackernews-react-client",
+	"version": "1.0.0",
+	"description": "A React implementation of Hacker News client.",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "webpack serve --config ./webpack.config.js --mode development",
+		"build": "webpack --config ./webpack.config.js  --mode production",
+		"lint": "eslint src",
+		"lint:fix": "eslint --fix src"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vishwasskm/hackernews-react-client.git"
+	},
+	"author": "Vishwa SSKM",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/vishwasskm/hackernews-react-client/issues"
+	},
+	"homepage": "https://github.com/vishwasskm/hackernews-react-client#readme",
+	"dependencies": {
+		"axios": "^0.21.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"prop-types": "^15.7.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.15.0",
+		"@babel/eslint-parser": "^7.15.0",
+		"@babel/plugin-transform-runtime": "^7.15.0",
+		"@babel/preset-env": "^7.15.0",
+		"@babel/preset-react": "^7.14.5",
+		"@babel/runtime": "^7.15.3",
+		"babel-loader": "^8.2.2",
+		"babel-plugin-transform-class-properties": "^6.24.1",
+		"eslint": "^7.32.0",
+		"eslint-plugin-react": "^7.23.2",
+		"eslint-watch": "^7.0.0",
+		"eslint-webpack-plugin": "^3.0.1",
+		"path": "^0.12.7",
+		"webpack": "^5.51.1",
+		"webpack-cli": "^4.8.0",
+		"webpack-dev-server": "^4.0.0"
+	}
 }
