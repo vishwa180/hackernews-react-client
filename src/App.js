@@ -1,12 +1,12 @@
 import React, { Suspense, Fragment } from 'react';
 import { HashRouter, Switch } from 'react-router-dom';
 
-// LAYOUT
 import NavBar from './components/layout/NavBar';
+
 import ErrorBoundary from './components/common/ErrorBoundary';
 import RouteComponent from './components/common/RouteComponent';
 
-import { Spinner } from './components/elements';
+import { Spinner } from './components/common/Spinner';
 
 import routes from './routes';
 

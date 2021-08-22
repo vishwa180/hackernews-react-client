@@ -1,34 +1,11 @@
-import React, { Component, Fragment } from 'react';
-import { getStories } from '../adapters/stories';
-import { Spinner } from '../components/elements';
-import Story from '../components/story';
+import React from 'react';
+import TopStories from '../components/TopStories';
 
-export class Home extends Component {
-	state = {
-		isLoading: true,
-		stories: [],
-	};
-
-	componentDidMount = async () => {
-		let stories = await getStories();
-		this.setState({ stories, isLoading: false });
-	};
-
-	render = () => {
-		return (
-			<Fragment>
-				{this.state.isLoading ? (
-					<Spinner />
-				) : (
-					<Fragment>
-						{this.state.stories.map((story) => (
-							<Story key={story.id} story={story} />
-						))}
-					</Fragment>
-				)}
-			</Fragment>
-		);
-	};
+export default function Home() {
+	return (
+		<div className='mt-3'>
+			<h4>Top Stories:</h4>
+			<TopStories />
+		</div>
+	);
 }
-
-export default Home;
