@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { InputField, Select } from './common';
+import { InputField, Select } from '../common';
 
 import Story from './Story';
 import PropTypes from 'prop-types';
@@ -21,6 +21,7 @@ export class StoriesList extends Component {
 	onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
 	searchFilter = (story) => {
+		if (story.deleted) return false;
 		const searchRegex = new RegExp(this.state.searchText, 'gi');
 		return story.by.match(searchRegex) || story.title.match(searchRegex);
 	};

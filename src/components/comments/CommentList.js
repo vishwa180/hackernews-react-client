@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { getDateTime } from '../utils';
-import { getComments } from '../adapters/comments';
-import { Button } from './common';
+import { getDateTime } from '../../utils';
+import { getComments } from '../../adapters/comments';
+import { Button } from '../common';
+import UserLink from '../user/UserLink';
 
 class Comment extends Component {
 	state = {
@@ -26,7 +27,7 @@ class Comment extends Component {
 				<div className='card bg-light mt-2'>
 					<div className='card-body'>
 						<h6 className='card-title'>
-							{comment.by} | {getDateTime(comment.time)}
+							<UserLink userName={comment.by} /> | {getDateTime(comment.time)}
 						</h6>
 						<p dangerouslySetInnerHTML={{ __html: comment.text }}></p>
 						{comment.kids && (
@@ -73,9 +74,11 @@ const CommentList = (props) => {
 		<div className='ms-4 mb-3'>
 			<h5>{isReplies ? 'Replies' : 'Comments'}:</h5>
 			{comments.length == 0 && <span>No {isReplies ? 'Replies' : 'Comments'} to show.</span>}
-			{comments.map((comment) => (
-				<Comment key={comment.id} comment={comment} />
-			))}
+			{comments
+				.filter((comment) => !comment.deleted)
+				.map((comment) => (
+					<Comment key={comment.id} comment={comment} />
+				))}
 		</div>
 	);
 };

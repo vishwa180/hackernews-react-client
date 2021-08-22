@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { getDateTime } from '../utils';
-import { getComments } from '../adapters/comments';
-import CommentList from './CommentList';
-import { Button } from './common';
+import { getDateTime } from '../../utils';
+import { getComments } from '../../adapters/comments';
+import CommentList from '../comments/CommentList';
+import { Button } from '../common';
+import UserLink from '../user/UserLink';
 
 export class Story extends Component {
 	state = {
@@ -28,11 +29,7 @@ export class Story extends Component {
 						{index}. {story.title}
 					</h5>
 					<p className='card-subtitle mb-2 text-muted mb-2'>
-						{story.score} points by{' '}
-						<a>
-							<i className='fas fa-user'></i> {story.by}
-						</a>{' '}
-						| <i className='fas fa-calendar me-1'></i> {getDateTime(story.time)}
+						{story.score} points by <UserLink userName={story.by} /> | <i className='fas fa-calendar me-1'></i> {getDateTime(story.time)}
 					</p>
 					<div className='pt-2'>
 						<Button

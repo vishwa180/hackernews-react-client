@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import { getStories, getTopStoryIds } from '../adapters/stories';
-import { Spinner, Button } from './common';
+import { getStories, getTopStoryIds } from '../../adapters/stories';
+import { Spinner, Button } from '../common';
 import StoriesList from './StoriesList';
 
 export class TopStories extends Component {
