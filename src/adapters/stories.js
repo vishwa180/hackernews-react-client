@@ -6,15 +6,26 @@ export const getItem = async (id) => {
 		return response.data;
 	} catch (error) {
 		console.log('Error while getting a item.');
+		return null;
 	}
 };
 
-export const getStories = async () => {
+export const getTopStoryIds = async () => {
 	try {
 		const { data: storyIds } = await get('/topstories.json');
-		const stories = await Promise.all(storyIds.slice(0, 30).map(getItem));
-		return stories;
+		return storyIds;
 	} catch (error) {
 		console.log(error);
+		return [];
+	}
+};
+
+export const getStories = async (storyIds) => {
+	try {
+		console.log(storyIds);
+		return await Promise.all(storyIds.map(getItem));
+	} catch (error) {
+		console.log(error);
+		return [];
 	}
 };

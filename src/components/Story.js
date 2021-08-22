@@ -21,12 +21,14 @@ export class Story extends Component {
 	};
 
 	render() {
-		const { story } = this.props;
+		const { story, index } = this.props;
 		setBtnLoading(`showComments-${story.id}`, this.state.commentsLoading);
 		return (
 			<div className='card mt-3'>
 				<div className='card-body'>
-					<h5 className='card-title'>{story.title}</h5>
+					<h5 className='card-title'>
+						{index}. {story.title}
+					</h5>
 					<p className='card-subtitle mb-2 text-muted mb-2'>
 						{story.score} points by{' '}
 						<a>
@@ -61,6 +63,7 @@ export class Story extends Component {
 
 Story.propTypes = {
 	story: PropTypes.object.isRequired,
+	index: PropTypes.number.isRequired,
 };
 
 export default Story;
