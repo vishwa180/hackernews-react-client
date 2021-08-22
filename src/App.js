@@ -3,10 +3,7 @@ import { HashRouter, Switch } from 'react-router-dom';
 
 import NavBar from './components/layout/NavBar';
 
-import ErrorBoundary from './components/common/ErrorBoundary';
-import RouteComponent from './components/common/RouteComponent';
-
-import { Spinner } from './components/common/Spinner';
+import { Spinner, ErrorBoundary, RouteComponent } from './components/common';
 
 import routes from './routes';
 

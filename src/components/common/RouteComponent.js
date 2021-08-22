@@ -13,4 +13,4 @@ const RouteComponent = ({ component: Component, ...rest }) => {
 	);
 };
 
-export default RouteComponent;
+export { RouteComponent };

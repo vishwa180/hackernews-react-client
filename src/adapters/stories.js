@@ -22,7 +22,6 @@ export const getTopStoryIds = async () => {
 
 export const getStories = async (storyIds) => {
 	try {
-		console.log(storyIds);
 		return await Promise.all(storyIds.map(getItem));
 	} catch (error) {
 		console.log(error);

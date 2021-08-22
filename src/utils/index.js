@@ -17,24 +17,3 @@ export const getDateTime = (unixTime) => {
 	let date = new Date(unixTime * 1000);
 	return getDateString(date) + ' ' + getTimeString(date);
 };
-
-export const setBtnLoading = (btnId, isLoading) => {
-	console.log(btnId);
-	let btn = document.getElementById(btnId);
-
-	if (btn) {
-		if (btn.disabled === isLoading) {
-			return;
-		}
-
-		btn.disabled = isLoading;
-		if (isLoading) {
-			btn.insertAdjacentHTML('afterbegin', `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>`);
-		} else {
-			let spinners = btn.getElementsByClassName('spinner-border');
-			for (let spinner of spinners) {
-				spinner.parentNode.removeChild(spinner);
-			}
-		}
-	}
-};
