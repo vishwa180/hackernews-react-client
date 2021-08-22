@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { InputField, Select } from './common';
 
-import Story from './story';
+import Story from './Story';
 import PropTypes from 'prop-types';
 
 const sortOptions = {
