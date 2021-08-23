@@ -4,6 +4,7 @@ import { InputField, Select } from '../common';
 import Story from './Story';
 import PropTypes from 'prop-types';
 
+// Sort options and the corresponding sort functions
 const sortOptions = {
 	// eslint-disable-next-line no-unused-vars
 	'Default Order': (a, b) => 0,
@@ -26,12 +27,12 @@ export class StoriesList extends Component {
 		return story.by.match(searchRegex) || story.title.match(searchRegex);
 	};
 
-	sortStories = (a, b) => {
-		if (this.state.sortBy == null) return 0;
-		return sortOptions[this.state.sortBy](a, b);
-	};
+	sortStories = (a, b) => sortOptions[this.state.sortBy](a, b);
 
 	render() {
+		// filter and sort the stories array as needed
+		const stories = this.props.stories.filter(this.searchFilter).sort(this.sortStories);
+
 		return (
 			<Fragment>
 				<div className='row'>
@@ -61,12 +62,9 @@ export class StoriesList extends Component {
 				</div>
 
 				<div className='mt-2'>
-					{this.props.stories
-						.filter(this.searchFilter)
-						.sort(this.sortStories)
-						.map((story, idx) => (
-							<Story key={story.id} story={story} index={idx + 1} />
-						))}
+					{stories.map((story, idx) => (
+						<Story key={story.id} story={story} index={idx + 1} />
+					))}
 				</div>
 			</Fragment>
 		);

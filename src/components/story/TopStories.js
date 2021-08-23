@@ -30,8 +30,11 @@ export class TopStories extends Component {
 		return (
 			<Fragment>
 				<StoriesList stories={this.state.stories} />
+
 				{this.state.isLoading && <Spinner />}
+
 				<div className='text-center mt-3 mb-4'>
+					{/* Hide the Load More button after loading all 500 top stories. */}
 					{this.state.storyIndex >= 500 ? (
 						<span className='text-muted'>No more top stories.</span>
 					) : (

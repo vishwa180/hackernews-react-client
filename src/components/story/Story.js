@@ -11,17 +11,13 @@ export class Story extends Component {
 		comments: null,
 	};
 
-	showComments = async () => {
-		let comments = await getComments(this.props.story.id);
-		this.setState({ comments });
-	};
+	showComments = async () => this.setState({ comments: await getComments(this.props.story.id) });
 
-	hideComments = () => {
-		this.setState({ comments: null });
-	};
+	hideComments = () => this.setState({ comments: null });
 
 	render() {
 		const { story, index } = this.props;
+
 		return (
 			<div className='card mt-3'>
 				<div className='card-body'>
@@ -36,9 +32,7 @@ export class Story extends Component {
 							config={{
 								label: 'Read Story',
 								color: 'primary',
-								onClick: () => {
-									window.open(story.url, '_blank');
-								},
+								onClick: () => window.open(story.url, '_blank'),
 								icon: 'book-open',
 							}}
 						/>
@@ -48,6 +42,7 @@ export class Story extends Component {
 								color: 'success',
 								onClick: this.showComments,
 								icon: 'comments',
+								// Hide the button after displaying the comments.
 								hide: this.state.comments != null,
 							}}
 						/>
@@ -57,6 +52,7 @@ export class Story extends Component {
 								color: 'dark',
 								onClick: this.hideComments,
 								icon: 'comments',
+								// Hide the button when the comments is already null.
 								hide: this.state.comments == null,
 							}}
 						/>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Button = ({ config: { id, label, attributes, color, icon, onClick, hide = false } }) => {
+	// When onClick func is called and running, isLoading is set True -> disables the button.
 	const [isLoading, setLoading] = useState(false);
 
 	return (
@@ -16,7 +17,6 @@ const Button = ({ config: { id, label, attributes, color, icon, onClick, hide = 
 						await onClick();
 					} catch (error) {
 						console.log(error);
-						alert(error);
 					}
 					setLoading(false);
 				}
@@ -24,8 +24,11 @@ const Button = ({ config: { id, label, attributes, color, icon, onClick, hide = 
 			{...attributes}
 			style={{ display: hide ? 'none' : 'inline' }}
 		>
+			{/* Display Spinner when isLoading is True */}
 			{isLoading && <span className='spinner-border spinner-border-sm me-2' role='status' aria-hidden='true'></span>}
+
 			{label}
+
 			{icon && <i className={`fas fa-${icon} ${label ? 'ms-1' : ''}`}></i>}
 		</button>
 	);

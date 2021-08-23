@@ -10,15 +10,9 @@ class Comment extends Component {
 		replies: null,
 	};
 
-	showReplies = async () => {
-		this.setState({ repliesLoading: true });
-		let replies = await getComments(this.props.comment.id);
-		this.setState({ replies, repliesLoading: false });
-	};
+	showReplies = async () => this.setState({ replies: await getComments(this.props.comment.id) });
 
-	hideReplies = () => {
-		this.setState({ replies: null });
-	};
+	hideReplies = () => this.setState({ replies: null });
 
 	render() {
 		const { comment } = this.props;
@@ -38,6 +32,7 @@ class Comment extends Component {
 										color: 'success',
 										onClick: this.showReplies,
 										icon: 'comments',
+										// Hide the button after displaying the replies.
 										hide: this.state.replies != null,
 									}}
 								/>
@@ -47,6 +42,7 @@ class Comment extends Component {
 										color: 'dark',
 										onClick: this.hideReplies,
 										icon: 'comments',
+										// Hide the button when the replies is already null.
 										hide: this.state.replies == null,
 									}}
 								/>

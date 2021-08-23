@@ -22,6 +22,7 @@ export const getTopStoryIds = async () => {
 
 export const getStories = async (storyIds) => {
 	try {
+		// loop through storyIds and get Item data for all ids
 		return await Promise.all(storyIds.map(getItem));
 	} catch (error) {
 		console.log(error);
